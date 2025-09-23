@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CleverAdvertising • Publisher SSP</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="publisherssp_pro.css"/>
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <div class="logo">CA</div>
+      <div class="titles">
+        <h1>CleverAdvertising</h1>
+        <span class="subtitle">Publisher SSP</span>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode">
+        <span class="icon">🌓</span>
+      </button>
+      <div class="user">
+        <div class="avatar" aria-hidden="true">JC</div>
+        <div class="user-meta">
+          <strong>João Calisto</strong>
+          <small>Publisher Partner</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="app">
+    <aside class="sidebar" role="navigation" aria-label="Steps">
+      <div class="sidebar-card glass">
+        <h3>Onboarding</h3>
+        <ol id="stepper" class="stepper">
+          <li class="step active" data-step="1"><span class="dot"></span><span>1. Publisher Details</span></li>
+          <li class="step" data-step="2"><span class="dot"></span><span>2. Inventory & Targeting</span></li>
+          <li class="step" data-step="3"><span class="dot"></span><span>3. Pricing & Caps</span></li>
+          <li class="step" data-step="4"><span class="dot"></span><span>4. Review & Estimate</span></li>
+        </ol>
+      </div>
+
+      <div class="sidebar-card kpis">
+        <h3>At‑a‑Glance</h3>
+        <div class="kpi">
+          <span class="label">Monthly Rev.</span>
+          <span id="kpiMonthly" class="value">$0.00</span>
+        </div>
+        <div class="kpi">
+          <span class="label">Yearly Rev.</span>
+          <span id="kpiYearly" class="value">$0.00</span>
+        </div>
+        <div class="kpi">
+          <span class="label">Avg. CPM</span>
+          <span id="kpiCpm" class="value">$0.00</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card help glass">
+        <h3>Need help?</h3>
+        <p>Questions about formats, caps or GEO pricing? <a href="#" aria-label="Open support">Contact support</a>.</p>
+      </div>
+    </aside>
+
+    <main class="content" role="main">
+      <!-- STEP 1: PUBLISHER DETAILS -->
+      <section class="panel" data-step="1">
+        <div class="panel-header">
+          <h2>Publisher Details</h2>
+          <p class="hint">Tell us who you are. This helps us tailor pricing and support.</p>
+        </div>
+
+        <form id="publisherForm" class="grid-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Jane Doe" required />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="jane@site.com" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" type="tel" placeholder="+351 9xx xxx xxx" />
+          </div>
+        </form>
+
+        <div class="panel-actions">
+          <button class="btn primary next">Continue</button>
+        </div>
+      </section>
+
+      <!-- STEP 2: INVENTORY & TARGETING -->
+      <section class="panel hidden" data-step="2">
+        <div class="panel-header">
+          <h2>Inventory & Targeting</h2>
+          <p class="hint">Add your properties and traffic distribution by GEO.</p>
+        </div>
+
+        <div class="card glass">
+          <div class="card-head">
+            <h3>Websites</h3>
+            <button id="addWebsite" class="btn ghost">Add URL</button>
+          </div>
+          <div id="websitesList" class="list"></div>
+        </div>
+
+        <div class="panel-actions">
+          <button class="btn ghost prev">Back</button>
+          <button class="btn primary next">Continue</button>
+        </div>
+      </section>
+
+      <!-- STEP 3: PRICING & CAPS -->
+      <section class="panel hidden" data-step="3">
+        <div class="panel-header">
+          <h2>Pricing & Caps</h2>
+          <p class="hint">Choose your formats and frequency caps. Live CPM estimates update instantly.</p>
+        </div>
+
+        <div class="split">
+          <div class="card glass">
+            <h3>Desktop Formats</h3>
+            <div id="desktopFormats" class="chips"></div>
+          </div>
+          <div class="card glass">
+            <h3>Mobile Formats</h3>
+            <div id="mobileFormats" class="chips"></div>
+          </div>
+        </div>
+
+
+
+        <div class="panel-actions">
+          <button class="btn ghost prev">Back</button>
+          <button class="btn primary next">Continue</button>
+        </div>
+      </section>
+
+      <!-- STEP 4: REVIEW & ESTIMATE -->
+      <section class="panel hidden" data-step="4">
+        <div class="panel-header">
+          <h2>Review & Estimate</h2>
+          <p class="hint">Confirm your selections and generate a branded proposal preview.</p>
+        </div>
+
+        <div id="reviewBlock" class="card glass"></div>
+
+        <div class="panel-actions">
+          <button class="btn ghost prev">Back</button>
+          <button id="generateProposalBtn" class="btn success">Generate Proposal</button>
+        </div>
+
+        <div id="proposalResult" class="card result hidden"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="publisherssp_pro (3).js"></script>
+</body>
+</html>
