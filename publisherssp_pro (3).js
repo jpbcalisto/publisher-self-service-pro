@@ -160,10 +160,16 @@ function chip(format, group) {
   
   el.addEventListener('click', (e) => {
     if (e.target.classList.contains('demo-link')) return;
-    const arr = state.selections[group];
-    const idx = arr.indexOf(format.value);
-    if (idx === -1) arr.push(format.value); else arr.splice(idx, 1);
-    el.classList.toggle('selected');
+    // Allow only one selection per device group
+state.selections[group] = [format.value];
+
+// Deselect all other chips in this group
+$$(`.chip`, document.getElementById(group === 'desktopFormats' ? 'desktopFormats' : 'mobileFormats'))
+  .forEach(ch => ch.classList.remove('selected'));
+
+// Mark this chip selected
+el.classList.add('selected');
+
     recalc();
     persist();
   });
