@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPM Data Editor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .filters { margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
+        select, input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #f5f5f5; }
+        .cpm-input { width: 80px; text-align: center; }
+        .save-btn { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+        .save-btn:hover { background: #0056b3; }
+        .status { margin-top: 10px; padding: 10px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CPM Data Editor</h1>
+        <button id="loadBtn" class="save-btn" onclick="loadData()">Load JSON File</button>
+        
+        <div class="filters">
+            <label>Category: <select id="categoryFilter"><option value="">All</option></select></label>
+            <label>GEO: <select id="geoFilter"><option value="">All</option></select></label>
+            <label>Format: <select id="formatFilter"><option value="">All</option></select></label>
+        </div>
+
+        <table id="cpmTable">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>GEO</th>
+                    <th>Ad Format</th>
+                    <th>CPM ($)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button class="save-btn" onclick="saveData()">Save Changes</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        let cpmData = [];
+        let originalData = {};
+
+        async function loadData() {
+            try {
+                const response = await fetch('publisherssp_data.json');
+                const data = await response.json();
+                cpmData = data.cpmData;
+                originalData = data;
+                populateFilters();
+                renderTable();
+                document.getElementById('loadBtn').style.display = 'none';
+            } catch (error) {
+                showStatus('Error loading data: ' + error.message, 'error');
+            }
+        }
+
+        function populateFilters() {
+            const categories = [...new Set(cpmData.map(item => item.category))];
+            const geos = [...new Set(cpmData.map(item => item.geo))];
+            const formats = [...new Set(cpmData.map(item => item.adFormat))];
+
+            populateSelect('categoryFilter', categories);
+            populateSelect('geoFilter', geos);
+            populateSelect('formatFilter', formats);
+        }
+
+        function populateSelect(id, options) {
+            const select = document.getElementById(id);
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                optionElement.textContent = option;
+                select.appendChild(optionElement);
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.querySelector('#cpmTable tbody');
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const geoFilter = document.getElementById('geoFilter').value;
+            const formatFilter = document.getElementById('formatFilter').value;
+
+            const filteredData = cpmData.filter(item => {
+                return (!categoryFilter || item.category === categoryFilter) &&
+                       (!geoFilter || item.geo === geoFilter) &&
+                       (!formatFilter || item.adFormat === formatFilter);
+            });
+
+            tbody.innerHTML = '';
+            filteredData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.category}</td>
+                    <td>${item.geo}</td>
+                    <td>${item.adFormat}</td>
+                    <td><input type="number" step="0.01" class="cpm-input" value="${item.cpm}" 
+                              onchange="updateCPM('${item.category}', '${item.geo}', '${item.adFormat}', this.value)"></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateCPM(category, geo, adFormat, newCpm) {
+            const item = cpmData.find(item => 
+                item.category === category && item.geo === geo && item.adFormat === adFormat
+            );
+            if (item) {
+                item.cpm = parseFloat(newCpm);
+            }
+        }
+
+        async function saveData() {
+            originalData.cpmData = cpmData;
+            try {
+                const response = await fetch('/save-cpm', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(originalData)
+                });
+                if (response.ok) {
+                    showStatus('Data saved successfully!', 'success');
+                } else {
+                    showStatus('Error saving data', 'error');
+                }
+            } catch (error) {
+                showStatus('Error: ' + error.message, 'error');
+            }
+        }
+
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+            setTimeout(() => status.textContent = '', 5000);
+        }
+
+        // Event listeners
+        document.getElementById('categoryFilter').addEventListener('change', renderTable);
+        document.getElementById('geoFilter').addEventListener('change', renderTable);
+        document.getElementById('formatFilter').addEventListener('change', renderTable);
+
+        loadData();
+    </script>
+</body>
+</html>

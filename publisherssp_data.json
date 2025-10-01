@@ -69,3360 +69,576 @@
       "category": "News",
       "geo": "BR",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 0.74
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 0.78
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 0.83
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 0.88
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 0.92
     },
     {
       "category": "News",
       "geo": "BR",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 0.92
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 0.97
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.02
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.06
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.11
     },
     {
       "category": "News",
       "geo": "BR",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.11
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.15
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.2
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.25
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.29
     },
     {
       "category": "News",
       "geo": "BR",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.29
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.34
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.38
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.43
-    },
-    {
-      "category": "News",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.48
     },
     {
       "category": "News",
       "geo": "ZA",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 0.82
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 0.86
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 0.91
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 0.95
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
-      "cpm": 1.0
+      "cpm": 1
     },
     {
       "category": "News",
       "geo": "ZA",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.0
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.05
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.09
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.14
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.18
     },
     {
       "category": "News",
       "geo": "ZA",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.18
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.23
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.28
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.32
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.37
     },
     {
       "category": "News",
       "geo": "ZA",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.37
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.42
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.46
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.51
-    },
-    {
-      "category": "News",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.55
     },
     {
       "category": "News",
       "geo": "TH",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 0.89
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 0.94
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 0.98
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.03
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.08
     },
     {
       "category": "News",
       "geo": "TH",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.08
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.12
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.17
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.22
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.26
     },
     {
       "category": "News",
       "geo": "TH",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.26
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.31
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.35
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.4
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.45
     },
     {
       "category": "News",
       "geo": "TH",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.45
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.49
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.54
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.58
-    },
-    {
-      "category": "News",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.63
     },
     {
       "category": "News",
       "geo": "RO",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 0.97
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.02
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.06
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.11
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.15
     },
     {
       "category": "News",
       "geo": "RO",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.15
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.2
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.25
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.29
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.34
     },
     {
       "category": "News",
       "geo": "RO",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.34
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.38
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.43
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.48
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.52
     },
     {
       "category": "News",
       "geo": "RO",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.52
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.57
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.62
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.66
-    },
-    {
-      "category": "News",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.71
     },
     {
       "category": "News",
       "geo": "NG",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.05
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.09
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.14
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.18
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.23
     },
     {
       "category": "News",
       "geo": "NG",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.23
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.28
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.32
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.37
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.42
     },
     {
       "category": "News",
       "geo": "NG",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.42
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.46
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.51
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.55
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.6
     },
     {
       "category": "News",
       "geo": "NG",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.6
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.65
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.69
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.74
-    },
-    {
-      "category": "News",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.78
     },
     {
       "category": "News",
       "geo": "Other",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.12
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.17
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.22
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.26
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.31
     },
     {
       "category": "News",
       "geo": "Other",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.31
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.35
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.4
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.45
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.49
     },
     {
       "category": "News",
       "geo": "Other",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.49
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.54
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.58
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.63
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.68
     },
     {
       "category": "News",
       "geo": "Other",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.68
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.72
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.77
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.82
-    },
-    {
-      "category": "News",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.86
     },
     {
       "category": "Music",
       "geo": "BR",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 0.86
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 0.91
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 0.95
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.0
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.05
     },
     {
       "category": "Music",
       "geo": "BR",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.05
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.09
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.14
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.18
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.23
     },
     {
       "category": "Music",
       "geo": "BR",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.23
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.28
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.32
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.37
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.42
     },
     {
       "category": "Music",
       "geo": "BR",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.42
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.46
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.51
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.55
-    },
-    {
-      "category": "Music",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.6
     },
     {
       "category": "Music",
       "geo": "ZA",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 0.94
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 0.98
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.03
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.08
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.12
     },
     {
       "category": "Music",
       "geo": "ZA",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.12
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.17
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.22
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.26
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.31
     },
     {
       "category": "Music",
       "geo": "ZA",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.31
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.35
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.4
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.45
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.49
     },
     {
       "category": "Music",
       "geo": "ZA",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.49
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.54
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.58
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.63
-    },
-    {
-      "category": "Music",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.68
     },
     {
       "category": "Music",
       "geo": "TH",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.02
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.06
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.11
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.15
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.2
     },
     {
       "category": "Music",
       "geo": "TH",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.2
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.25
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.29
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.34
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.38
     },
     {
       "category": "Music",
       "geo": "TH",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.38
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.43
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.48
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.52
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.57
     },
     {
       "category": "Music",
       "geo": "TH",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.57
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.62
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.66
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.71
-    },
-    {
-      "category": "Music",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.75
     },
     {
       "category": "Music",
       "geo": "RO",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.09
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.14
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.18
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.23
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.28
     },
     {
       "category": "Music",
       "geo": "RO",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.28
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.32
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.37
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.42
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.46
     },
     {
       "category": "Music",
       "geo": "RO",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.46
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.51
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.55
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.6
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.65
     },
     {
       "category": "Music",
       "geo": "RO",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.65
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.69
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.74
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.78
-    },
-    {
-      "category": "Music",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.83
     },
     {
       "category": "Music",
       "geo": "NG",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.17
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.22
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.26
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.31
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.35
     },
     {
       "category": "Music",
       "geo": "NG",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.35
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.4
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.45
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.49
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.54
     },
     {
       "category": "Music",
       "geo": "NG",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.54
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.58
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.63
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.68
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.72
     },
     {
       "category": "Music",
       "geo": "NG",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.72
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.77
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.82
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.86
-    },
-    {
-      "category": "Music",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.91
     },
     {
       "category": "Music",
       "geo": "Other",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.25
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.29
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.34
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.38
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.43
     },
     {
       "category": "Music",
       "geo": "Other",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.43
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.48
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.52
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.57
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.62
     },
     {
       "category": "Music",
       "geo": "Other",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.62
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.66
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.71
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.75
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.8
     },
     {
       "category": "Music",
       "geo": "Other",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.8
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.85
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.89
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.94
-    },
-    {
-      "category": "Music",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.98
     },
     {
       "category": "Sports",
       "geo": "BR",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 0.98
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.03
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.08
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.12
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
-      "cpm": 1.17
+      "cpm": 20
     },
     {
       "category": "Sports",
       "geo": "BR",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.17
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.22
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.26
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.31
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
-      "cpm": 1.35
+      "cpm": 30
     },
     {
       "category": "Sports",
       "geo": "BR",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.35
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.4
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.45
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.49
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
-      "cpm": 1.54
+      "cpm": 20
     },
     {
       "category": "Sports",
       "geo": "BR",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.54
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.58
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.63
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.68
-    },
-    {
-      "category": "Sports",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
-      "cpm": 1.72
+      "cpm": 30
     },
     {
       "category": "Sports",
       "geo": "ZA",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.06
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.11
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.15
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.2
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.25
     },
     {
       "category": "Sports",
       "geo": "ZA",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.25
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.29
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.34
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.38
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.43
     },
     {
       "category": "Sports",
       "geo": "ZA",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.43
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.48
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.52
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.57
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.62
     },
     {
       "category": "Sports",
       "geo": "ZA",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.62
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.66
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.71
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.75
-    },
-    {
-      "category": "Sports",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.8
     },
     {
       "category": "Sports",
       "geo": "TH",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.14
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.18
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.23
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.28
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.32
     },
     {
       "category": "Sports",
       "geo": "TH",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.32
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.37
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.42
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.46
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.51
     },
     {
       "category": "Sports",
       "geo": "TH",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.51
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.55
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.6
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.65
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.69
     },
     {
       "category": "Sports",
       "geo": "TH",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.69
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.74
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.78
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.83
-    },
-    {
-      "category": "Sports",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.88
     },
     {
       "category": "Sports",
       "geo": "RO",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.22
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.26
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.31
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.35
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.4
     },
     {
       "category": "Sports",
       "geo": "RO",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.4
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.45
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.49
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.54
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.58
     },
     {
       "category": "Sports",
       "geo": "RO",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.58
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.63
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.68
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.72
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.77
     },
     {
       "category": "Sports",
       "geo": "RO",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.77
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.82
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.86
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.91
-    },
-    {
-      "category": "Sports",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.95
     },
     {
       "category": "Sports",
       "geo": "NG",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.29
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.34
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.38
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.43
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.48
     },
     {
       "category": "Sports",
       "geo": "NG",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.48
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.52
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.57
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.62
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.66
     },
     {
       "category": "Sports",
       "geo": "NG",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.66
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.71
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.75
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.8
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.85
     },
     {
       "category": "Sports",
       "geo": "NG",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.85
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.89
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.94
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.98
-    },
-    {
-      "category": "Sports",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 2.03
     },
     {
       "category": "Sports",
       "geo": "Other",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.37
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.42
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.46
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.51
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.55
     },
     {
       "category": "Sports",
       "geo": "Other",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.55
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.6
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.65
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.69
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.74
     },
     {
       "category": "Sports",
       "geo": "Other",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.74
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.78
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.83
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.88
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.92
     },
     {
       "category": "Sports",
       "geo": "Other",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.92
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.97
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 2.02
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 2.06
-    },
-    {
-      "category": "Sports",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 2.11
     },
     {
       "category": "Finance",
       "geo": "BR",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.11
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.15
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.2
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.25
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.29
     },
     {
       "category": "Finance",
       "geo": "BR",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.29
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.34
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.38
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.43
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.48
     },
     {
       "category": "Finance",
       "geo": "BR",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.48
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.52
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.57
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.62
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.66
     },
     {
       "category": "Finance",
       "geo": "BR",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.66
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.71
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.75
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.8
-    },
-    {
-      "category": "Finance",
-      "geo": "BR",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.85
     },
     {
       "category": "Finance",
       "geo": "ZA",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.18
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.23
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.28
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.32
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.37
     },
     {
       "category": "Finance",
       "geo": "ZA",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.37
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.42
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.46
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.51
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.55
     },
     {
       "category": "Finance",
       "geo": "ZA",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.55
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.6
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.65
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.69
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.74
     },
     {
       "category": "Finance",
       "geo": "ZA",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.74
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.78
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.83
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.88
-    },
-    {
-      "category": "Finance",
-      "geo": "ZA",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 1.92
     },
     {
       "category": "Finance",
       "geo": "TH",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.26
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.31
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.35
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.4
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.45
     },
     {
       "category": "Finance",
       "geo": "TH",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.45
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.49
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.54
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.58
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.63
     },
     {
       "category": "Finance",
       "geo": "TH",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.63
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.68
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.72
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.77
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.82
     },
     {
       "category": "Finance",
       "geo": "TH",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.82
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.86
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.91
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.95
-    },
-    {
-      "category": "Finance",
-      "geo": "TH",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
-      "cpm": 2.0
+      "cpm": 2
     },
     {
       "category": "Finance",
       "geo": "RO",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.34
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.38
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.43
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.48
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.52
     },
     {
       "category": "Finance",
       "geo": "RO",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.52
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.57
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.62
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.66
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.71
     },
     {
       "category": "Finance",
       "geo": "RO",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.71
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.75
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.8
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.85
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.89
     },
     {
       "category": "Finance",
       "geo": "RO",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.89
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.94
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.98
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 2.03
-    },
-    {
-      "category": "Finance",
-      "geo": "RO",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 2.08
     },
     {
       "category": "Finance",
       "geo": "NG",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.42
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.46
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.51
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.55
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.6
     },
     {
       "category": "Finance",
       "geo": "NG",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.6
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.65
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.69
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.74
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.78
     },
     {
       "category": "Finance",
       "geo": "NG",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.78
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.83
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.88
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 1.92
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 1.97
     },
     {
       "category": "Finance",
       "geo": "NG",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.97
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 2.02
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 2.06
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 2.11
-    },
-    {
-      "category": "Finance",
-      "geo": "NG",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 2.15
     },
     {
       "category": "Finance",
       "geo": "Other",
       "adFormat": "desktop_cube",
-      "freqCap": "1h",
-      "cpm": 1.49
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "4h",
-      "cpm": 1.54
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "8h",
-      "cpm": 1.58
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "12h",
-      "cpm": 1.63
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_cube",
-      "freqCap": "24h",
       "cpm": 1.68
     },
     {
       "category": "Finance",
       "geo": "Other",
       "adFormat": "desktop_offerwall",
-      "freqCap": "1h",
-      "cpm": 1.68
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "4h",
-      "cpm": 1.72
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "8h",
-      "cpm": 1.77
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "12h",
-      "cpm": 1.82
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "desktop_offerwall",
-      "freqCap": "24h",
       "cpm": 1.86
     },
     {
       "category": "Finance",
       "geo": "Other",
       "adFormat": "mobile_cube",
-      "freqCap": "1h",
-      "cpm": 1.86
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "4h",
-      "cpm": 1.91
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "8h",
-      "cpm": 1.95
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "12h",
-      "cpm": 2.0
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_cube",
-      "freqCap": "24h",
       "cpm": 2.05
     },
     {
       "category": "Finance",
       "geo": "Other",
       "adFormat": "mobile_offerwall",
-      "freqCap": "1h",
-      "cpm": 2.05
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "4h",
-      "cpm": 2.09
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "8h",
-      "cpm": 2.14
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "12h",
-      "cpm": 2.18
-    },
-    {
-      "category": "Finance",
-      "geo": "Other",
-      "adFormat": "mobile_offerwall",
-      "freqCap": "24h",
       "cpm": 2.23
     }
   ]
