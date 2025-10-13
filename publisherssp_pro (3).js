@@ -396,6 +396,14 @@ function websiteRow(site) {
     if (!urlEl || !catEl || !usersEl) return;
     
     site.url = urlEl.value.trim();
+    
+    // URL validation
+    if (site.url && !validateUrl(site.url)) {
+      urlEl.style.borderColor = 'var(--danger)';
+    } else {
+      urlEl.style.borderColor = '';
+    }
+    
     site.category = catEl.value;
     site.uniqueUsers = Number(usersEl.value || 0);
     site.mainGeo = mainGeoEl ? mainGeoEl.value : '';
@@ -404,6 +412,32 @@ function websiteRow(site) {
     site.mainGeoShare = Number((mainShareEl ? mainShareEl.value : '') || 0);
     site.secondaryGeoShare = Number((secShareEl ? secShareEl.value : '') || 0);
     site.otherGeoShare = Number((otherShareEl ? otherShareEl.value : '') || 0);
+    
+    // Auto-calculate Other GEO share
+    const mainShare = site.mainGeoShare || 0;
+    const secShare = site.secondaryGeoShare || 0;
+    const remaining = 100 - mainShare - secShare;
+    
+    if (remaining > 0 && remaining <= 100 && (mainShare > 0 || secShare > 0)) {
+      site.otherGeoShare = remaining;
+      if (otherShareEl) otherShareEl.value = remaining;
+    }
+    const newDesktopShare = Number((desktopEl ? desktopEl.value : '') || 0);
+    const newMobileShare = Number((mobileEl ? mobileEl.value : '') || 0);
+    
+    // Auto-calculate Mobile when Desktop changes
+    if (newDesktopShare !== site.desktopShare && newDesktopShare > 0 && newDesktopShare < 100) {
+      const calculatedMobile = 100 - newDesktopShare;
+      site.mobileShare = calculatedMobile;
+      if (mobileEl) mobileEl.value = calculatedMobile;
+    }
+    // Auto-calculate Desktop when Mobile changes
+    else if (newMobileShare !== site.mobileShare && newMobileShare > 0 && newMobileShare < 100) {
+      const calculatedDesktop = 100 - newMobileShare;
+      site.desktopShare = calculatedDesktop;
+      if (desktopEl) desktopEl.value = calculatedDesktop;
+    }
+    
     site.desktopShare = Number((desktopEl ? desktopEl.value : '') || 0);
     site.mobileShare = Number((mobileEl ? mobileEl.value : '') || 0);
 
@@ -438,7 +472,13 @@ function review() {
   const block = document.getElementById('reviewBlock');
   if (!block) return;
   const { totalMonthlyRevenue, yearly, avgCpm } = recalc();
-  const fmt = (arr) => arr.length ? arr.join(', ') : 'None';
+  const fmt = (arr) => {
+    if (!arr.length) return 'None';
+    return arr.map(value => {
+      const format = [...adFormats.desktop, ...adFormats.mobile].find(f => f.value === value);
+      return format ? format.name : value;
+    }).join(', ');
+  };
   
   const websitesHtml = state.websites.map((w,i)=>`
     <div class="kpi-card">
@@ -465,6 +505,26 @@ function review() {
   `;
 }
 
+// --- Validation Functions ---
+const validateEmail = (email) => {
+  if (!email) return false;
+  const atIndex = email.indexOf('@');
+  const lastDotIndex = email.lastIndexOf('.');
+  return atIndex > 0 && lastDotIndex > atIndex + 1 && lastDotIndex < email.length - 1;
+};
+
+const validatePhone = (phone) => {
+  if (!phone) return true; // Optional field
+  const phoneRegex = /^\+?[0-9]+$/;
+  return phoneRegex.test(phone);
+};
+
+const validateUrl = (url) => {
+  if (!url) return false;
+  const dotIndex = url.indexOf('.');
+  return dotIndex > 0 && dotIndex < url.length - 1;
+};
+
 // --- Validation ---
 function validateStepTransition(currentStep, targetStep) {
   // Allow going backwards
@@ -474,6 +534,14 @@ function validateStepTransition(currentStep, targetStep) {
   if (currentStep === 1 && targetStep > 1) {
     if (!state.user.name || !state.user.email) {
       toast('Please fill in your name and email before continuing.');
+      return false;
+    }
+    if (!validateEmail(state.user.email)) {
+      toast('Please enter a valid email address (must contain @ and .).');
+      return false;
+    }
+    if (state.user.phone && !validatePhone(state.user.phone)) {
+      toast('Phone number must contain only numbers and optional + at the start.');
       return false;
     }
   }
@@ -486,6 +554,10 @@ function validateStepTransition(currentStep, targetStep) {
     }
     
     for (const [i, site] of state.websites.entries()) {
+      if (!site.url || !validateUrl(site.url)) {
+        toast(`Website ${i+1}: Please enter a valid URL (format: domain.extension).`);
+        return false;
+      }
       if (!site.category) {
         toast(`Website ${i+1}: Please select a category.`);
         return false;
@@ -578,12 +650,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailEl = document.getElementById('email');
   const phoneEl = document.getElementById('phone');
 
+
+
   const saveUser = () => {
     state.user.name = nameEl ? nameEl.value.trim() : '';
     state.user.email = emailEl ? emailEl.value.trim() : '';
     state.user.phone = phoneEl ? phoneEl.value.trim() : '';
     persist();
   };
+
+  // Email validation
+  if (emailEl) {
+    emailEl.addEventListener('input', () => {
+      const email = emailEl.value.trim();
+      if (email && !validateEmail(email)) {
+        emailEl.style.borderColor = 'var(--danger)';
+        emailEl.setCustomValidity('Email must contain @ and . (e.g., user@domain.com)');
+      } else {
+        emailEl.style.borderColor = '';
+        emailEl.setCustomValidity('');
+      }
+    });
+  }
+
+  // Phone validation
+  if (phoneEl) {
+    phoneEl.addEventListener('input', () => {
+      const phone = phoneEl.value.trim();
+      if (phone && !validatePhone(phone)) {
+        phoneEl.style.borderColor = 'var(--danger)';
+        phoneEl.setCustomValidity('Phone must contain only numbers and optional + at the start');
+      } else {
+        phoneEl.style.borderColor = '';
+        phoneEl.setCustomValidity('');
+      }
+    });
+  }
+
   const publisherForm = document.getElementById('publisherForm');
   if (publisherForm) publisherForm.addEventListener('input', saveUser);
 
