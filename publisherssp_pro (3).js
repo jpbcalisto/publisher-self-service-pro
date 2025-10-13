@@ -306,9 +306,9 @@ function websiteRow(site) {
   card.className = 'website-card';
   card.dataset.id = site.id;
 
-  const meta = document.createElement('div');
-  meta.className = 'meta';
-  meta.innerHTML = `
+  const basicInfo = document.createElement('div');
+  basicInfo.className = 'basic-info';
+  basicInfo.innerHTML = `
     <div class="field">
       <label>Website URL</label>
       <input class="input-url" type="url" placeholder="https://www.example.com" value="${site.url || ''}" />
@@ -326,48 +326,63 @@ function websiteRow(site) {
     </div>
   `;
 
-  const geo = document.createElement('div');
-  geo.className = 'geo';
+  const geoSection = document.createElement('div');
+  geoSection.className = 'geo-section';
   const opts = (sel) => countries.map(c => `<option value="${c.code}" ${sel === c.code ? 'selected' : ''}>${c.name}</option>`).join('');
-  geo.innerHTML = `
-    <div class="field">
-      <label>Main GEO</label>
-      <select class="geo-main"><option value="">Select</option>${opts(site.mainGeo)}</select>
-      <input class="share-main" type="number" min="1" max="100" placeholder="% share" value="${site.mainGeoShare || ''}" />
-    </div>
-    <div class="field">
-      <label>Secondary</label>
-      <select class="geo-secondary"><option value="">Select</option>${opts(site.secondaryGeo)}</select>
-      <input class="share-secondary" type="number" min="0" max="100" placeholder="% share" value="${site.secondaryGeoShare || ''}" />
-    </div>
-    <div class="field">
-      <label>Other</label>
-      <select class="geo-other"><option value="">Select</option>${opts(site.otherGeo)}</select>
-      <input class="share-other" type="number" min="0" max="100" placeholder="% share" value="${site.otherGeoShare || ''}" />
-    </div>
-  `;
-
-  const traffic = document.createElement('div');
-  traffic.className = 'traffic';
-  traffic.innerHTML = `
-    <div class="field">
-      <label>Desktop Traffic</label>
-      <input class="desktop-share" type="number" min="0" max="100" placeholder="% desktop" value="${site.desktopShare || ''}" />
-    </div>
-    <div class="field">
-      <label>Mobile Traffic</label>
-      <input class="mobile-share" type="number" min="0" max="100" placeholder="% mobile" value="${site.mobileShare || ''}" />
+  geoSection.innerHTML = `
+    <h4>Geographic Distribution</h4>
+    <div class="geo-grid">
+      <div class="geo-item">
+        <label>Main GEO</label>
+        <div class="geo-row">
+          <select class="geo-main"><option value="">Select</option>${opts(site.mainGeo)}</select>
+          <input class="share-main" type="number" min="1" max="100" placeholder="%" value="${site.mainGeoShare || ''}" />
+        </div>
+      </div>
+      <div class="geo-item">
+        <label>Secondary</label>
+        <div class="geo-row">
+          <select class="geo-secondary"><option value="">Select</option>${opts(site.secondaryGeo)}</select>
+          <input class="share-secondary" type="number" min="0" max="100" placeholder="%" value="${site.secondaryGeoShare || ''}" />
+        </div>
+      </div>
+      <div class="geo-item">
+        <label>Other</label>
+        <div class="geo-row">
+          <select class="geo-other"><option value="">Select</option>${opts(site.otherGeo)}</select>
+          <input class="share-other" type="number" min="0" max="100" placeholder="%" value="${site.otherGeoShare || ''}" />
+        </div>
+      </div>
     </div>
   `;
 
-  const indicators = document.createElement('div');
-  indicators.innerHTML = `
-    <span class="badge"><span class="dot"></span><span class="sum-label">Share total: <strong class="sum">0%</strong></span></span>
-    <span class="badge"><span class="dot"></span><span>Est. Avg CPM: <strong class="cpm">$0.00</strong></span></span>
+  const trafficSection = document.createElement('div');
+  trafficSection.className = 'traffic-section';
+  trafficSection.innerHTML = `
+    <h4>Traffic Distribution</h4>
+    <div class="traffic-grid">
+      <div class="field">
+        <label>Desktop Traffic</label>
+        <input class="desktop-share" type="number" min="0" max="100" placeholder="% desktop" value="${site.desktopShare || ''}" />
+      </div>
+      <div class="field">
+        <label>Mobile Traffic</label>
+        <input class="mobile-share" type="number" min="0" max="100" placeholder="% mobile" value="${site.mobileShare || ''}" />
+      </div>
+    </div>
   `;
 
-  const actions = document.createElement('div');
-  actions.className = 'actions';
+  const summaryActions = document.createElement('div');
+  summaryActions.className = 'summary-actions';
+  summaryActions.innerHTML = `
+    <div class="summary-badges">
+      <span class="badge"><span class="dot"></span><span class="sum-label">Share total: <strong class="sum">0%</strong></span></span>
+      <span class="badge"><span class="dot"></span><span>Est. Avg CPM: <strong class="cpm">$0.00</strong></span></span>
+    </div>
+    <div class="actions"></div>
+  `;
+
+  const actionsContainer = summaryActions.querySelector('.actions');
   const rm = document.createElement('button');
   rm.className = 'btn';
   rm.textContent = 'Remove';
@@ -376,9 +391,9 @@ function websiteRow(site) {
     renderWebsites();
     recalc();
   });
-  actions.appendChild(rm);
+  actionsContainer.appendChild(rm);
 
-  card.append(meta, geo, traffic, indicators, actions);
+  card.append(basicInfo, geoSection, trafficSection, summaryActions);
 
   const bind = () => {
     const urlEl = card.querySelector('.input-url');

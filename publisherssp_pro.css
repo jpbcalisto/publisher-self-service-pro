@@ -111,7 +111,12 @@ body {
 .field.inline { flex-direction: row; align-items: center; gap: 12px; }
 .field label { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
 .field input, .field select {
-  background: #0e1a2f; border:1px solid var(--border); border-radius: 12px; padding: 12px 14px; color: var(--text);
+  background: #0e1a2f; border:1px solid var(--border); border-radius: 12px; padding: 12px 14px; color: var(--text); font-size: 14px;
+}
+
+.field input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
 }
 :root.light .field input, :root.light .field select { background: #fff; }
 
@@ -123,19 +128,145 @@ body {
 
 .website-card {
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 12px;
-  display:grid;
-  grid-template-columns: 1.1fr 0.9fr 1fr 1fr;
-  gap: 12px;
-  align-items: center;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   background: linear-gradient(180deg, rgba(255,255,255,0.04), transparent);
+  margin-bottom: 16px;
 }
-.website-card .meta { display:flex; flex-direction:column; gap: 8px; }
-.website-card .meta .url { font-weight:600; }
-.website-card .meta .category { color: var(--muted); font-size:12px; }
-.website-card .geo { display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.website-card .actions { display:flex; gap: 8px; justify-content:flex-end; }
+
+.website-card .basic-info {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.website-card .geo-section {
+  margin-top: 8px;
+}
+
+.website-card .geo-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.website-card .geo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.website-card .geo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.website-card .geo-item label {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.website-card .geo-item .geo-row {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+}
+
+.website-card .geo-item select {
+  flex: 2;
+}
+
+.website-card .geo-item input {
+  flex: 1;
+  min-width: 80px;
+}
+
+.website-card .geo-item select,
+.website-card .geo-item input {
+  background: #0e1a2f;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.website-card .geo-item input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.website-card .geo-item select option {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.website-card .geo-item select {
+  color: var(--muted);
+}
+
+.website-card .geo-item select:focus,
+.website-card .geo-item select:not([value=""]) {
+  color: var(--text);
+}
+
+.website-card .geo-item select option[value=""] {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+:root.light .website-card .geo-item select,
+:root.light .website-card .geo-item input {
+  background: #fff;
+}
+
+.website-card .traffic-section {
+  margin-top: 8px;
+}
+
+.website-card .traffic-section h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.website-card .traffic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.website-card .summary-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.website-card .summary-badges {
+  display: flex;
+  gap: 12px;
+}
+
+.website-card .actions {
+  display: flex;
+  gap: 8px;
+}
 
 .badge {
   display:inline-flex; align-items:center; gap:6px;
@@ -194,7 +325,27 @@ body {
   .content { order: 1; }
   .grid-form { grid-template-columns: 1fr; }
   .split { grid-template-columns: 1fr; }
-  .website-card { grid-template-columns: 1fr; }
+  
+  .website-card .basic-info {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .website-card .geo-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .website-card .traffic-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .website-card .summary-actions {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
 }
 
 .logo img{width:40px;height:40px;object-fit:contain;display:block;}
