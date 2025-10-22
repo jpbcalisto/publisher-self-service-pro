@@ -275,15 +275,57 @@ body {
 }
 .badge .dot { width:8px; height:8px; background: var(--primary); border-radius:50%; }
 
-.chips { display:flex; flex-wrap:wrap; gap: 10px; }
+.chips { display:flex; flex-direction: column; gap: 10px; }
+
+.format-chip {
+  margin-bottom: 8px;
+}
+
 .chip {
   border:1px solid var(--border);
-  padding: 10px 12px; border-radius: 999px; cursor:pointer;
+  padding: 12px 16px; border-radius: 12px; cursor:pointer;
   background: #0e1a2f; color: var(--text);
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
 }
 :root.light .chip { background: #fff; }
 .chip.selected { border-color: var(--primary); box-shadow: inset 0 0 0 2px var(--primary); }
-.chip a { color: var(--primary); text-decoration:none; font-size: 12px; margin-left: 6px; }
+
+.demo-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.demo-link:hover {
+  text-decoration: underline;
+}
+
+.format-details {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: -1px;
+}
+
+.format-details.hidden {
+  display: none;
+}
+
+.format-details > div {
+  margin-bottom: 6px;
+}
+
+.format-details > div:last-child {
+  margin-bottom: 0;
+}
 
 .btn {
   border:1px solid var(--border);
@@ -317,6 +359,10 @@ body {
 #toast.show { opacity: 1; transform: translateY(0); }
 
 .hidden { display: none !important; }
+
+.admin-list { margin-bottom: 12px; }
+.admin-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 4px; }
+.admin-item button { padding: 4px 8px; font-size: 12px; }
 
 /* Responsive */
 @media (max-width: 1100px) {
@@ -465,4 +511,35 @@ body {
 .chip.selected:hover {
   background: #6D45DC !important;   /* lighter hover tone */
   border-color: #6D45DC !important;
+}
+
+.demo-preview {
+  position: fixed;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-1);
+  z-index: 1000;
+  padding: 12px;
+}
+
+.preview-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--muted);
+  background: var(--panel);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-close:hover {
+  color: var(--text);
+  background: var(--border);
 }

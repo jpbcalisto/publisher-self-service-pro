@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Format Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .preview { width: 200px; height: 150px; border: 1px solid #ddd; margin: 10px 0; object-fit: cover; }
+        .format-list { margin-top: 30px; }
+        .format-item { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 4px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Format Manager</h1>
+        <div style="margin-bottom: 20px;">
+            <a href="cpm-editor.html" style="padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 4px;">Edit CPM Data</a>
+        </div>
+        
+        <form id="formatForm">
+            <div class="form-group">
+                <label>Format Name:</label>
+                <input type="text" id="formatName" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Group:</label>
+                <select id="formatGroup" required>
+                    <option value="desktop">Desktop</option>
+                    <option value="mobile">Mobile</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Image:</label>
+                <input type="file" id="formatImage" accept="image/*" required>
+                <img id="preview" class="preview hidden">
+            </div>
+            
+            <div class="form-group">
+                <label>Placement:</label>
+                <input type="text" id="placement" placeholder="e.g., Above fold, Sidebar">
+            </div>
+            
+            <div class="form-group">
+                <label>Effects:</label>
+                <input type="text" id="effects" placeholder="e.g., Fade in, Slide">
+            </div>
+            
+            <div class="form-group">
+                <label>Dimensions:</label>
+                <input type="text" id="dimensions" placeholder="e.g., 300x250, Responsive">
+            </div>
+            
+            <button type="submit">Add Format</button>
+        </form>
+        
+        <div class="format-list">
+            <h2>Existing Formats</h2>
+            <div id="formatsList"></div>
+        </div>
+    </div>
+
+    <script>
+        let formats = [];
+        
+        // Preview image when selected
+        document.getElementById('formatImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('preview');
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Handle form submission
+        document.getElementById('formatForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('formatName').value;
+            const group = document.getElementById('formatGroup').value;
+            const file = document.getElementById('formatImage').files[0];
+            const placement = document.getElementById('placement').value;
+            const effects = document.getElementById('effects').value;
+            const dimensions = document.getElementById('dimensions').value;
+            
+            if (file) {
+                // Create asset filename based on format name AND device type
+                const assetName = group + '_' + name.toLowerCase().replace(/\s+/g, '_') + '.' + file.name.split('.').pop();
+                
+                // Create asset automatically
+                const formData = new FormData();
+                formData.append('image', file);
+                formData.append('assetName', assetName);
+                
+                fetch('/create-asset', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.path) {
+                        const format = {
+                            name: name,
+                            group: group,
+                            value: group + '_' + name.toLowerCase().replace(/\s+/g, '_'),
+                            demoUrl: result.path,
+                            placement: placement,
+                            effects: effects,
+                            dimensions: dimensions
+                        };
+                        
+                        formats.push(format);
+                        renderFormats();
+                        saveFormats();
+                        
+                        // Reset form
+                        document.getElementById('formatForm').reset();
+                        document.getElementById('preview').classList.add('hidden');
+                        
+                        alert('Format and asset created successfully!');
+                    } else {
+                        alert('Error creating asset');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error creating asset: ' + error.message);
+                });
+            }
+        });
+        
+        function renderFormats() {
+            const list = document.getElementById('formatsList');
+            list.innerHTML = formats.map((format, index) => `
+                <div class="format-item">
+                    <h3>${format.name} (${format.group})</h3>
+                    <p><strong>Asset:</strong> ${format.demoUrl}</p>
+                    <p><strong>Placement:</strong> ${format.placement || 'Not specified'}</p>
+                    <p><strong>Effects:</strong> ${format.effects || 'Not specified'}</p>
+                    <p><strong>Dimensions:</strong> ${format.dimensions || 'Not specified'}</p>
+                    <button onclick="removeFormat(${index})">Remove</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeFormat(index) {
+            const format = formats[index];
+            
+            // Delete the asset file
+            if (format.demoUrl) {
+                fetch('/delete-asset', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ assetPath: format.demoUrl })
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Asset deleted:', result);
+                })
+                .catch(error => {
+                    console.error('Error deleting asset:', error);
+                });
+            }
+            
+            formats.splice(index, 1);
+            renderFormats();
+            saveFormats();
+        }
+        
+        function saveFormats() {
+            // Save to localStorage
+            localStorage.setItem('formats', JSON.stringify(formats));
+            
+            // Also save to publisherssp_data.json
+            const desktopFormats = formats.filter(f => f.group === 'desktop');
+            const mobileFormats = formats.filter(f => f.group === 'mobile');
+            
+            fetch('/save-formats', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    formats: formats,
+                    desktopFormats: desktopFormats,
+                    mobileFormats: mobileFormats
+                })
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Formats saved to JSON:', result);
+            })
+            .catch(error => {
+                console.error('Error saving formats:', error);
+            });
+        }
+        
+        // Load existing formats
+        function loadFormats() {
+            const saved = localStorage.getItem('formats');
+            if (saved) {
+                formats = JSON.parse(saved);
+                renderFormats();
+            }
+        }
+        
+        loadFormats();
+    </script>
+</body>
+</html>

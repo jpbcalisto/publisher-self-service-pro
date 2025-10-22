@@ -40,14 +40,8 @@ const countries = [
   { code: 'Other', name: 'Other / Global' }
 ];
 const adFormats = {
-  desktop: [
-    { name: 'Desktop Cube', demoUrl: 'https://cleveradvertising.com/demo/formats/cube/', value: 'desktop_cube' },
-    { name: 'Desktop Offerwall', demoUrl: 'https://cleveradvertising.com/demo/formats/offerwall/inverted.html?v=2', value: 'desktop_offerwall' },
-  ],
-  mobile: [
-    { name: 'Mobile Cube', demoUrl: 'https://cleveradvertising.com/demo/formats/mobile/cube/', value: 'mobile_cube' },
-    { name: 'Mobile Offerwall', demoUrl: 'https://cleveradvertising.com/demo/formats/mobile/offerwall/inverted.html?v=2', value: 'mobile_offerwall' },
-  ]
+  desktop: [],
+  mobile: []
 };
 
 
@@ -78,6 +72,13 @@ async function loadExternalData() {
       const m = data.formats.filter(f => f.group === 'mobile');
       adFormats.desktop.splice(0, adFormats.desktop.length, ...d);
       adFormats.mobile.splice(0, adFormats.mobile.length, ...m);
+    } else if (data.adFormats) {
+      if (data.adFormats.desktop) {
+        adFormats.desktop.splice(0, adFormats.desktop.length, ...data.adFormats.desktop);
+      }
+      if (data.adFormats.mobile) {
+        adFormats.mobile.splice(0, adFormats.mobile.length, ...data.adFormats.mobile);
+      }
     }
     if (Array.isArray(data.cpmData) && data.cpmData.length) {
       cpmDataTable.splice(0, cpmDataTable.length, ...data.cpmData);
@@ -98,40 +99,60 @@ let previewIframe = null;
 function showPreview(url, linkElement) {
   hidePreview();
   
-  previewIframe = document.createElement('div');
-  previewIframe.className = 'demo-preview';
-  previewIframe.innerHTML = `
-    <iframe src="${url}" frameborder="0" width="300" height="200"></iframe>
-    <div class="preview-close">×</div>
-  `;
-  
-  const rect = linkElement.getBoundingClientRect();
-  previewIframe.style.cssText = `
-    position: fixed;
-    top: ${rect.bottom + 10}px;
-    left: ${rect.left}px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    z-index: 1000;
-    padding: 8px;
-  `;
-  
-  document.body.appendChild(previewIframe);
-  
-  const closeBtn = previewIframe.querySelector('.preview-close');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', hidePreview);
-    closeBtn.style.cssText = `
-      position: absolute;
-      top: 4px;
-      right: 8px;
-      cursor: pointer;
-      font-size: 18px;
-      color: #666;
+  const img = new Image();
+  img.onload = function() {
+    const aspectRatio = this.naturalWidth / this.naturalHeight;
+    const maxWidth = Math.min(600, window.innerWidth * 0.8);
+    const maxHeight = Math.min(400, window.innerHeight * 0.6);
+    
+    let width, height;
+    if (aspectRatio > maxWidth / maxHeight) {
+      width = maxWidth;
+      height = maxWidth / aspectRatio;
+    } else {
+      height = maxHeight;
+      width = maxHeight * aspectRatio;
+    }
+    
+    previewIframe = document.createElement('div');
+    previewIframe.className = 'demo-preview';
+    previewIframe.innerHTML = `
+      <img src="${url}" style="width: ${width}px; height: ${height}px; object-fit: contain; border-radius: 4px;" />
+      <div class="preview-close">×</div>
     `;
-  }
+    
+    const rect = linkElement.getBoundingClientRect();
+    const left = Math.min(rect.left, window.innerWidth - width - 20);
+    const top = rect.bottom + 10 + height > window.innerHeight ? rect.top - height - 10 : rect.bottom + 10;
+    
+    previewIframe.style.cssText = `
+      position: fixed;
+      top: ${Math.max(10, top)}px;
+      left: ${Math.max(10, left)}px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      padding: 8px;
+    `;
+    
+    document.body.appendChild(previewIframe);
+    
+    const closeBtn = previewIframe.querySelector('.preview-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', hidePreview);
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: 4px;
+        right: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        color: #666;
+      `;
+    }
+  };
+  img.src = url;
 }
 
 function hidePreview() {
@@ -144,35 +165,59 @@ function hidePreview() {
 // --- UI Builders (created after DOM is ready) ---
 
 function chip(format, group) {
-  const el = document.createElement('button');
-  el.type = 'button';
-  el.className = 'chip';
-  el.innerHTML = `${format.name} <a href="${format.demoUrl}" target="_blank" rel="noopener" class="demo-link">(demo)</a>`;
+  const el = document.createElement('div');
+  el.className = 'format-chip';
   
-  const demoLink = el.querySelector('.demo-link');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'chip';
+  button.innerHTML = `${format.name} <span class="demo-link">(demo)</span>`;
+  
+  const details = document.createElement('div');
+  details.className = 'format-details hidden';
+  details.innerHTML = `
+    <div><strong>Placement:</strong> ${format.placement || 'Not specified'}</div>
+    <div><strong>Effects:</strong> ${format.effects || 'Not specified'}</div>
+    <div><strong>Dimensions:</strong> ${format.dimensions || 'Not specified'}</div>
+  `;
+  
+  el.appendChild(button);
+  el.appendChild(details);
+  
+  const demoLink = button.querySelector('.demo-link');
   if (demoLink) {
-    demoLink.addEventListener('mouseenter', (e) => {
+    demoLink.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       showPreview(format.demoUrl, e.target);
     });
-    demoLink.addEventListener('mouseleave', hidePreview);
   }
   
-  el.addEventListener('click', (e) => {
-    if (e.target.classList.contains('demo-link')) return;
+  button.addEventListener('click', (e) => {
+    // Don't handle click if it's on the demo link
+    if (e.target.closest('.demo-link')) return;
+    
+    // Toggle details
+    details.classList.toggle('hidden');
+    
     // Allow only one selection per device group
-state.selections[group] = [format.value];
-
-// Deselect all other chips in this group
-$$(`.chip`, document.getElementById(group === 'desktopFormats' ? 'desktopFormats' : 'mobileFormats'))
-  .forEach(ch => ch.classList.remove('selected'));
-
-// Mark this chip selected
-el.classList.add('selected');
-
+    state.selections[group] = [format.value];
+    
+    // Deselect all other chips in this group
+    $$(`.chip`, document.getElementById(group === 'desktopFormats' ? 'desktopFormats' : 'mobileFormats'))
+      .forEach(ch => ch.classList.remove('selected'));
+    
+    // Hide all other details in this group
+    $$(`.format-details`, document.getElementById(group === 'desktopFormats' ? 'desktopFormats' : 'mobileFormats'))
+      .forEach(d => { if (d !== details) d.classList.add('hidden'); });
+    
+    // Mark this chip selected
+    button.classList.add('selected');
+    
     recalc();
     persist();
   });
+  
   return el;
 }
 
@@ -270,11 +315,7 @@ function recalc() {
       totalCpmWeighted += totalSiteCpmWeighted;
     }
 
-    const row = document.querySelector(`.website-card[data-id="${site.id}"]`);
-    if (row) {
-      const cpmEl = row.querySelector('.cpm');
-      if (cpmEl) cpmEl.textContent = `$${cpm.toFixed(2)}`;
-    }
+
     
     // Store revenue for review
     site.monthlyRevenue = monthlyRevenue;
@@ -284,12 +325,7 @@ function recalc() {
   const avgCpm = totalImpressions > 0 ? totalCpmWeighted / totalImpressions : 0;
   const yearly = totalMonthlyRevenue * 12;
 
-  const kpiM = document.getElementById('kpiMonthly');
-  const kpiY = document.getElementById('kpiYearly');
-  const kpiC = document.getElementById('kpiCpm');
-  if (kpiM) kpiM.textContent = `$${totalMonthlyRevenue.toFixed(2)}`;
-  if (kpiY) kpiY.textContent = `$${yearly.toFixed(2)}`;
-  if (kpiC) kpiC.textContent = `$${avgCpm.toFixed(2)}`;
+
 
   return { totalMonthlyRevenue, yearly, avgCpm };
 }
@@ -317,7 +353,11 @@ function websiteRow(site) {
       <label>Category</label>
       <select class="select-category">
         <option value="">Select category</option>
-        ${categories.map(c => `<option ${site.category === c ? 'selected' : ''}>${c}</option>`).join('')}
+        ${[...categories].sort((a, b) => {
+          if (a === 'Other') return 1;
+          if (b === 'Other') return -1;
+          return a.localeCompare(b);
+        }).map(c => `<option ${site.category === c ? 'selected' : ''}>${c}</option>`).join('')}
       </select>
     </div>
     <div class="field">
@@ -328,7 +368,14 @@ function websiteRow(site) {
 
   const geoSection = document.createElement('div');
   geoSection.className = 'geo-section';
-  const opts = (sel) => countries.map(c => `<option value="${c.code}" ${sel === c.code ? 'selected' : ''}>${c.name}</option>`).join('');
+  const opts = (sel) => {
+    const sorted = [...countries].sort((a, b) => {
+      if (a.code === 'Other' || a.code === 'OS') return 1;
+      if (b.code === 'Other' || b.code === 'OS') return -1;
+      return a.name.localeCompare(b.name);
+    });
+    return sorted.map(c => `<option value="${c.code}" ${sel === c.code ? 'selected' : ''}>${c.name}</option>`).join('');
+  };
   geoSection.innerHTML = `
     <h4>Geographic Distribution</h4>
     <div class="geo-grid">
@@ -377,7 +424,6 @@ function websiteRow(site) {
   summaryActions.innerHTML = `
     <div class="summary-badges">
       <span class="badge"><span class="dot"></span><span class="sum-label">Share total: <strong class="sum">0%</strong></span></span>
-      <span class="badge"><span class="dot"></span><span>Est. Avg CPM: <strong class="cpm">$0.00</strong></span></span>
     </div>
     <div class="actions"></div>
   `;
@@ -433,7 +479,7 @@ function websiteRow(site) {
     const secShare = site.secondaryGeoShare || 0;
     const remaining = 100 - mainShare - secShare;
     
-    if (remaining > 0 && remaining <= 100 && (mainShare > 0 || secShare > 0)) {
+    if (remaining >= 0 && remaining <= 100) {
       site.otherGeoShare = remaining;
       if (otherShareEl) otherShareEl.value = remaining;
     }
@@ -488,7 +534,7 @@ function review() {
   if (!block) return;
   const { totalMonthlyRevenue, yearly, avgCpm } = recalc();
   const fmt = (arr) => {
-    if (!arr.length) return 'None';
+    if (!arr || !arr.length) return 'None selected';
     return arr.map(value => {
       const format = [...adFormats.desktop, ...adFormats.mobile].find(f => f.value === value);
       return format ? format.name : value;
@@ -500,7 +546,7 @@ function review() {
       <div><strong>Website ${i+1}:</strong> ${w.url || '—'}</div>
       <div><small>${w.category || '—'} • Main: ${w.mainGeo || '—'} (${w.mainGeoShare||0}%) • ${w.uniqueUsers || 0} users</small></div>
       <div><small>Desktop: ${w.desktopShare||0}% • Mobile: ${w.mobileShare||0}%</small></div>
-      <div><strong>CPM:</strong> $${(w.avgCpm || 0).toFixed(2)} • <strong>Monthly Revenue:</strong> $${(w.monthlyRevenue || 0).toFixed(2)}</div>
+
     </div>
   `).join('');
   
@@ -511,12 +557,7 @@ function review() {
     </div>
     <hr/>
     ${websitesHtml}
-    <hr/>
-    <div class="kpi-grid">
-      <div class="kpi-card"><div class="label">Total Monthly Revenue</div><div class="value">$${totalMonthlyRevenue.toFixed(2)}</div></div>
-      <div class="kpi-card"><div class="label">Total Yearly Revenue</div><div class="value">$${yearly.toFixed(2)}</div></div>
-      <div class="kpi-card"><div class="label">Avg CPM</div><div class="value">$${avgCpm.toFixed(2)}</div></div>
-    </div>
+
   `;
 }
 
@@ -622,6 +663,7 @@ function setStep(n) {
   const next = $(`.panel[data-step="${n}"]`);
   if (next) next.classList.remove('hidden');
   $$('.step').forEach(li => li.classList.toggle('active', Number(li.dataset.step) === n));
+  if (n === 4) review(); // Call review when entering step 4
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -638,7 +680,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Close preview on click outside
   document.addEventListener('click', (e) => {
-    if (previewIframe && !previewIframe.contains(e.target) && !e.target.classList.contains('demo-link')) {
+    if (previewIframe && !previewIframe.contains(e.target) && !e.target.closest('.demo-link')) {
       hidePreview();
     }
   });
@@ -715,8 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderWebsites();
   }
 
-  // Apply defaults to avoid empty UI
-  ensureDefaultFormats();
+  // Render formats without defaults
   renderFormats();
   recalc();
 
@@ -738,7 +779,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!state.websites.length) {
       toast('Add at least one website.'); setStep(2); return;
     }
-    ensureDefaultFormats();
     const allFormats = [...state.selections.desktopFormats, ...state.selections.mobileFormats];
     if (!allFormats.length) {
       toast('Select at least one ad format.'); setStep(3); return;
@@ -757,7 +797,48 @@ document.addEventListener('DOMContentLoaded', () => {
       toast('Please fill "Unique users (30d)" for all websites.'); setStep(2); return;
     }
 
-    const { totalMonthlyRevenue, yearly } = recalc();
+    const { totalMonthlyRevenue, yearly, avgCpm } = recalc();
+    
+    // Generate email content
+    const subject = `New Publisher Proposal - ${state.user.name}`;
+    let body = `New Publisher Proposal Submitted:\n\n`;
+    body += `Contact Details:\n`;
+    body += `Name: ${state.user.name}\n`;
+    body += `Email: ${state.user.email}\n`;
+    body += `Phone: ${state.user.phone || 'Not provided'}\n\n`;
+    body += `Websites:\n`;
+    
+    state.websites.forEach((w, i) => {
+      body += `Website ${i+1}:\n`;
+      body += `URL: ${w.url}\n`;
+      body += `Category: ${w.category}\n`;
+      body += `Users: ${w.uniqueUsers}\n`;
+      body += `Main GEO: ${w.mainGeo} (${w.mainGeoShare}%)\n`;
+      body += `Desktop: ${w.desktopShare}% | Mobile: ${w.mobileShare}%\n`;
+      body += `Monthly Revenue: $${(w.monthlyRevenue || 0).toFixed(2)}\n`;
+      body += `Avg CPM: $${(w.avgCpm || 0).toFixed(2)}\n\n`;
+    });
+    
+    body += `Selected Formats:\n`;
+    const desktopNames = state.selections.desktopFormats.map(value => {
+      const format = adFormats.desktop.find(f => f.value === value);
+      return format ? format.name : value;
+    });
+    const mobileNames = state.selections.mobileFormats.map(value => {
+      const format = adFormats.mobile.find(f => f.value === value);
+      return format ? format.name : value;
+    });
+    body += `Desktop: ${desktopNames.join(', ')}\n`;
+    body += `Mobile: ${mobileNames.join(', ')}\n\n`;
+    body += `Total Estimates:\n`;
+    body += `Monthly Revenue: $${totalMonthlyRevenue.toFixed(2)}\n`;
+    body += `Yearly Revenue: $${yearly.toFixed(2)}\n`;
+    body += `Average CPM: $${avgCpm.toFixed(2)}`;
+    
+    // Open email client
+    const mailtoLink = `mailto:mediaoperations@cleveradvertising.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink);
+    
     const result = document.getElementById('proposalResult');
     if (result) {
       result.classList.remove('hidden');
@@ -773,6 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="kpi-card">
             <div><strong>Website ${i+1}:</strong> ${w.url || '—'}</div>
             <div><small>Category: ${w.category || '—'} | Unique users: ${w.uniqueUsers || 0}</small></div>
+            <div><strong>Monthly Revenue:</strong> $${(w.monthlyRevenue || 0).toFixed(2)} | <strong>Avg CPM:</strong> $${(w.avgCpm || 0).toFixed(2)}</div>
           </div>
         `).join('')}
         <p style="margin-top:12px;color:var(--muted)"><em>This is an automatic estimate. An account manager will follow up within 3 business days.</em></p>
@@ -824,10 +906,7 @@ function addWebsiteCard(preset) {
 
 // Ensure default formats
 function ensureDefaultFormats() {
-  if (!state.selections.desktopFormats.length && !state.selections.mobileFormats.length) {
-    if (adFormats.desktop[0]) state.selections.desktopFormats.push(adFormats.desktop[0].value);
-    if (adFormats.mobile[0]) state.selections.mobileFormats.push(adFormats.mobile[0].value);
-  }
+  // No default selection - user must choose formats
 }
 
 // Highlight missing users
@@ -840,3 +919,5 @@ function highlightMissingUsers() {
     }
   });
 }
+
+
