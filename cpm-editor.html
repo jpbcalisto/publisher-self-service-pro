@@ -111,11 +111,18 @@
             const countries = originalData.countries || [];
             const formats = originalData.formats || [];
             
-            // Only add missing entries, don't clear existing ones
+            // Remove obsolete entries first
+            cpmData = cpmData.filter(item => {
+                const categoryExists = categories.includes(item.category);
+                const countryExists = countries.some(c => c.code === item.geo);
+                const formatExists = formats.some(f => f.value === item.adFormat);
+                return categoryExists && countryExists && formatExists;
+            });
+            
+            // Add missing entries
             categories.forEach(category => {
                 countries.forEach(country => {
                     formats.forEach(format => {
-                        // Check if entry already exists
                         const exists = cpmData.find(item => 
                             item.category === category &&
                             item.geo === country.code &&

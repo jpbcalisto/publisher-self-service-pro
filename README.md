@@ -59,7 +59,7 @@ A modern, responsive web application for publisher onboarding and revenue estima
 publisherssp_pro_bundle/
 ├── publisherssp_pro.html          # Main HTML file
 ├── publisherssp_pro.css           # Stylesheet
-├── publisherssp_pro (3).js        # Main JavaScript application
+├── publisherssp_pro.js             # Main JavaScript application
 ├── publisherssp_data.json         # CPM pricing data
 ├── test-server.py                 # Local development server
 └── README.md                      # This file
