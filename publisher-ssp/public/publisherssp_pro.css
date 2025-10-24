@@ -26,7 +26,7 @@
   font-weight: 400;
   letter-spacing: 0.04em;
 }
-}
+
 /* --- Brand Tokens --- */
 :root {
   /* Font families */
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6,
 .header, .main-header, .section-header, .topbar .titles h1, .topbar .titles .subtitle {
   font-family: var(--font-title);
 }
-}
+
 
 /* Topbar */
 .topbar {
