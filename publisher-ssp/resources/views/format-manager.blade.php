@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Format Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .preview { width: 200px; height: 150px; border: 1px solid #ddd; margin: 10px 0; object-fit: cover; }
+        .format-list { margin-top: 30px; }
+        .format-item { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 4px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Format Manager</h1>
+        <div style="margin-bottom: 20px;">
+            <a href="/cpm-editor.html" style="padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 4px;">Edit CPM Data</a>
+        </div>
+        
+        <form id="formatForm">
+            <div class="form-group">
+                <label>Format Name:</label>
+                <input type="text" id="formatName" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Group:</label>
+                <select id="formatGroup" required>
+                    <option value="desktop">Desktop</option>
+                    <option value="mobile">Mobile</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Image:</label>
+                <input type="file" id="formatImage" accept="image/*" required>
+                <img id="preview" class="preview hidden">
+            </div>
+            
+            <div class="form-group">
+                <label>Placement:</label>
+                <input type="text" id="placement" placeholder="e.g., Above fold, Sidebar">
+            </div>
+            
+            <div class="form-group">
+                <label>Effects:</label>
+                <input type="text" id="effects" placeholder="e.g., Fade in, Slide">
+            </div>
+            
+            <div class="form-group">
+                <label>Dimensions:</label>
+                <input type="text" id="dimensions" placeholder="e.g., 300x250, Responsive">
+            </div>
+            
+            <button type="submit">Add Format</button>
+        </form>
+        
+        <div style="margin: 20px 0;">
+            <button onclick="downloadJSON()" style="background: #28a745;">Download Updated JSON</button>
+            <p style="font-size: 12px; color: #666;">After adding formats, download and replace publisherssp_data.json</p>
+        </div>
+        
+        <div class="format-list">
+            <h2>Existing Formats</h2>
+            <div id="formatsList"></div>
+        </div>
+    </div>
+
+    <script>
+        let formats = [];
+        let isLaravelMode = false;
+        let csrfToken = null;
+        
+        // Get CSRF token
+        function getCsrfToken() {
+            const token = document.querySelector('meta[name="csrf-token"]');
+            if (token) {
+                return token.getAttribute('content');
+            }
+            return null;
+        }
+        
+        // Detect if running in Laravel environment
+        async function detectEnvironment() {
+            try {
+                const response = await fetch('/api/health', { 
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    isLaravelMode = data.status === 'ok';
+                } else {
+                    isLaravelMode = false;
+                }
+            } catch (error) {
+                console.log('Laravel detection failed:', error.message);
+                isLaravelMode = false;
+            }
+            console.log('Environment:', isLaravelMode ? 'Laravel' : 'Standalone');
+            
+            // Update UI based on environment
+            const downloadBtn = document.querySelector('[onclick="downloadJSON()"]');
+            if (isLaravelMode) {
+                downloadBtn.style.display = 'none';
+            }
+        }
+        
+        // Preview image when selected
+        document.getElementById('formatImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('preview');
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Handle form submission
+        document.getElementById('formatForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('formatName').value;
+            const group = document.getElementById('formatGroup').value;
+            const file = document.getElementById('formatImage').files[0];
+            const placement = document.getElementById('placement').value;
+            const effects = document.getElementById('effects').value;
+            const dimensions = document.getElementById('dimensions').value;
+            
+            if (file) {
+                // Create asset filename based on format name AND device type
+                const assetName = group + '_' + name.toLowerCase().replace(/\s+/g, '_') + '.' + file.name.split('.').pop();
+                
+                // Create asset automatically
+                const formData = new FormData();
+                formData.append('image', file);
+                formData.append('assetName', assetName);
+                
+                if (isLaravelMode) {
+                    // Laravel mode - use API
+                    fetch('/api/create-asset', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(async response => {
+                        if (!response.ok) {
+                            const text = await response.text();
+                            throw new Error(`HTTP ${response.status}: ${text.substring(0, 100)}`);
+                        }
+                        return response.json();
+                    })
+                    .then(result => {
+                        if (result.path) {
+                            const format = {
+                                name: name,
+                                group: group,
+                                value: group + '_' + name.toLowerCase().replace(/\s+/g, '_'),
+                                demoUrl: result.path,
+                                placement: placement,
+                                effects: effects,
+                                dimensions: dimensions
+                            };
+                            
+                            formats.push(format);
+                            renderFormats();
+                            saveFormats();
+                            
+                            document.getElementById('formatForm').reset();
+                            document.getElementById('preview').classList.add('hidden');
+                            
+                            alert('Format and asset created successfully!');
+                        } else {
+                            alert('Error: No path returned from server');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Laravel API Error:', error);
+                        alert('Laravel server not available. Switching to standalone mode.');
+                        isLaravelMode = false;
+                        // Retry in standalone mode
+                        document.getElementById('formatForm').dispatchEvent(new Event('submit'));
+                    });
+                } else {
+                    // Standalone mode
+                    console.log('Using standalone mode');
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const format = {
+                            name: name,
+                            group: group,
+                            value: group + '_' + name.toLowerCase().replace(/\s+/g, '_'),
+                            demoUrl: 'assets/' + assetName,
+                            placement: placement,
+                            effects: effects,
+                            dimensions: dimensions,
+                            imageData: e.target.result
+                        };
+                        
+                        formats.push(format);
+                        renderFormats();
+                        saveFormats();
+                        
+                        document.getElementById('formatForm').reset();
+                        document.getElementById('preview').classList.add('hidden');
+                        
+                        alert('Format created! Manually copy image to: assets/' + assetName);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+        
+        function renderFormats() {
+            const list = document.getElementById('formatsList');
+            list.innerHTML = formats.map((format, index) => `
+                <div class="format-item">
+                    <h3>${format.name} (${format.group})</h3>
+                    <p><strong>Asset:</strong> ${format.demoUrl}</p>
+                    <p><strong>Placement:</strong> ${format.placement || 'Not specified'}</p>
+                    <p><strong>Effects:</strong> ${format.effects || 'Not specified'}</p>
+                    <p><strong>Dimensions:</strong> ${format.dimensions || 'Not specified'}</p>
+                    <button onclick="removeFormat(${index})">Remove</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeFormat(index) {
+            const format = formats[index];
+            
+            if (isLaravelMode && format.demoUrl) {
+                fetch('/api/delete-asset', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ assetPath: format.demoUrl })
+                })
+                .then(response => response.json())
+                .then(result => console.log('Asset deleted:', result))
+                .catch(error => console.error('Error deleting asset:', error));
+            } else if (format.demoUrl) {
+                console.log('Please manually delete:', format.demoUrl);
+            }
+            
+            formats.splice(index, 1);
+            renderFormats();
+            saveFormats();
+        }
+        
+        async function saveFormats() {
+            // Save to localStorage
+            localStorage.setItem('formats', JSON.stringify(formats));
+            
+            try {
+                // Load current data to preserve other fields
+                const response = await fetch('publisherssp_data.json');
+                const currentData = await response.json();
+                
+                // Update formats
+                currentData.formats = formats;
+                
+                // Update adFormats for compatibility
+                currentData.adFormats = {
+                    desktop: formats.filter(f => f.group === 'desktop'),
+                    mobile: formats.filter(f => f.group === 'mobile')
+                };
+                
+                // Regenerate CPM entries dynamically
+                const categories = currentData.categories || [];
+                const countries = currentData.countries || [];
+                
+                // Remove obsolete CPM entries
+                currentData.cpmData = (currentData.cpmData || []).filter(item => {
+                    const formatExists = formats.some(f => f.value === item.adFormat);
+                    return formatExists;
+                });
+                
+                // Add missing CPM entries for new formats
+                categories.forEach(category => {
+                    countries.forEach(country => {
+                        formats.forEach(format => {
+                            const exists = currentData.cpmData.find(item => 
+                                item.category === category &&
+                                item.geo === country.code &&
+                                item.adFormat === format.value
+                            );
+                            
+                            if (!exists) {
+                                currentData.cpmData.push({
+                                    category: category,
+                                    geo: country.code,
+                                    adFormat: format.value,
+                                    freqCap: 'Any',
+                                    cpm: 1.0
+                                });
+                            }
+                        });
+                    });
+                });
+                
+                if (isLaravelMode) {
+                    // Laravel mode - save via API
+                    const saveResponse = await fetch('/api/save-cpm', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(currentData)
+                    });
+                    
+                    if (saveResponse.ok) {
+                        console.log('Data saved successfully');
+                    } else {
+                        console.error('Error saving data');
+                    }
+                } else {
+                    // Standalone mode
+                    localStorage.setItem('publisherssp_data', JSON.stringify(currentData));
+                    console.log('Data saved to localStorage. Download JSON to update file.');
+                }
+            } catch (error) {
+                console.error('Error saving formats:', error);
+            }
+        }
+        
+        // Load existing formats from JSON file
+        async function loadFormats() {
+            try {
+                const response = await fetch('publisherssp_data.json');
+                const data = await response.json();
+                
+                if (data.formats) {
+                    formats = data.formats;
+                    renderFormats();
+                } else {
+                    // Fallback to localStorage if no formats in JSON
+                    const saved = localStorage.getItem('formats');
+                    if (saved) {
+                        formats = JSON.parse(saved);
+                        renderFormats();
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading formats:', error);
+                // Fallback to localStorage
+                const saved = localStorage.getItem('formats');
+                if (saved) {
+                    formats = JSON.parse(saved);
+                    renderFormats();
+                }
+            }
+        }
+        
+        // Initialize
+        csrfToken = getCsrfToken();
+        detectEnvironment().then(() => {
+            loadFormats();
+        });
+        
+        function downloadJSON() {
+            const savedData = localStorage.getItem('publisherssp_data');
+            if (savedData) {
+                const blob = new Blob([savedData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'publisherssp_data.json';
+                a.click();
+                URL.revokeObjectURL(url);
+            } else {
+                alert('No data to download. Add a format first.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPM Data Editor</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .filters { margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
+        select, input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #f5f5f5; }
+        .cpm-input { width: 80px; text-align: center; }
+        .save-btn { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+        .save-btn:hover { background: #0056b3; }
+        .status { margin-top: 10px; padding: 10px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CPM Data Editor</h1>
+        <div style="margin-bottom: 20px;">
+            <button id="loadBtn" class="save-btn" onclick="loadData()">Load JSON File</button>
+            <a href="format-manager.html" style="margin-left: 10px; padding: 10px 20px; background: #28a745; color: white; text-decoration: none; border-radius: 4px;">Manage Formats</a>
+            <button id="syncJsonBtn" class="save-btn" style="margin-left: 10px; background: #28a745;">Sync JSON</button>
+        </div>
+        
+        <div style="margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 4px;">
+            <h2>Manage Data</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                <div>
+                    <h3>Categories</h3>
+                    <div id="categoriesList"></div>
+                    <input id="newCategory" type="text" placeholder="New category" style="width: 100%; margin: 5px 0;">
+                    <button onclick="addCategory()" style="width: 100%;">Add Category</button>
+                </div>
+                <div>
+                    <h3>Countries/GEOs</h3>
+                    <div id="countriesList"></div>
+                    <input id="newCountryCode" type="text" placeholder="Code" maxlength="3" style="width: 30%; margin: 2px;">
+                    <input id="newCountryName" type="text" placeholder="Country name" style="width: 65%; margin: 2px;">
+                    <button onclick="addCountry()" style="width: 100%; margin-top: 5px;">Add Country</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="filters">
+            <label>Category: <select id="categoryFilter"><option value="">All</option></select></label>
+            <label>GEO: <select id="geoFilter"><option value="">All</option></select></label>
+            <label>Format: <select id="formatFilter"><option value="">All</option></select></label>
+        </div>
+
+        <table id="cpmTable">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>GEO</th>
+                    <th>Ad Format</th>
+                    <th>CPM ($)</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button class="save-btn" onclick="saveData()">Save Changes</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        let cpmData = [];
+        let originalData = {};
+
+        async function loadData() {
+            try {
+                const response = await fetch('publisherssp_data.json');
+                const data = await response.json();
+                cpmData = data.cpmData;
+                originalData = data;
+                populateFilters();
+                renderTable();
+                renderManagementLists();
+                document.getElementById('loadBtn').style.display = 'none';
+            } catch (error) {
+                showStatus('Error loading data: ' + error.message, 'error');
+            }
+        }
+
+        function populateFilters() {
+            // Generate CPM entries first
+            generateMissingCpmEntries();
+            
+            const categories = [...new Set(cpmData.map(item => item.category))];
+            const geos = [...new Set(cpmData.map(item => item.geo))];
+            const formats = [...new Set(cpmData.map(item => item.adFormat))];
+
+            // Clear existing options
+            document.getElementById('categoryFilter').innerHTML = '<option value="">All</option>';
+            document.getElementById('geoFilter').innerHTML = '<option value="">All</option>';
+            document.getElementById('formatFilter').innerHTML = '<option value="">All</option>';
+
+            populateSelect('categoryFilter', categories);
+            populateSelect('geoFilter', geos);
+            populateSelect('formatFilter', formats);
+        }
+        
+        function generateMissingCpmEntries() {
+            const categories = originalData.categories || [];
+            const countries = originalData.countries || [];
+            const formats = originalData.formats || [];
+            
+            // Remove obsolete entries first
+            cpmData = cpmData.filter(item => {
+                const categoryExists = categories.includes(item.category);
+                const countryExists = countries.some(c => c.code === item.geo);
+                const formatExists = formats.some(f => f.value === item.adFormat);
+                return categoryExists && countryExists && formatExists;
+            });
+            
+            // Add missing entries
+            categories.forEach(category => {
+                countries.forEach(country => {
+                    formats.forEach(format => {
+                        const exists = cpmData.find(item => 
+                            item.category === category &&
+                            item.geo === country.code &&
+                            item.adFormat === format.value
+                        );
+                        
+                        if (!exists) {
+                            cpmData.push({
+                                category: category,
+                                geo: country.code,
+                                adFormat: format.value,
+                                freqCap: 'Any',
+                                cpm: 1.0
+                            });
+                        }
+                    });
+                });
+            });
+        }
+
+        function populateSelect(id, options) {
+            const select = document.getElementById(id);
+            options.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                optionElement.textContent = option;
+                select.appendChild(optionElement);
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.querySelector('#cpmTable tbody');
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const geoFilter = document.getElementById('geoFilter').value;
+            const formatFilter = document.getElementById('formatFilter').value;
+
+            const filteredData = cpmData.filter(item => {
+                return (!categoryFilter || item.category === categoryFilter) &&
+                       (!geoFilter || item.geo === geoFilter) &&
+                       (!formatFilter || item.adFormat === formatFilter);
+            });
+
+            tbody.innerHTML = '';
+            
+            if (filteredData.length === 0 && (originalData.formats || []).length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = '<td colspan="4" style="text-align: center; color: #666;">No ad formats found. Create formats using the Format Manager first.</td>';
+                tbody.appendChild(row);
+                return;
+            }
+            
+            filteredData.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.category}</td>
+                    <td>${item.geo}</td>
+                    <td>${item.adFormat}</td>
+                    <td><input type="number" step="0.01" class="cpm-input" value="${item.cpm.toFixed(2)}" 
+                              onchange="updateCPM('${item.category}', '${item.geo}', '${item.adFormat}', this.value)"></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateCPM(category, geo, adFormat, newCpm) {
+            const item = cpmData.find(item => 
+                item.category === category && item.geo === geo && item.adFormat === adFormat
+            );
+            if (item) {
+                item.cpm = parseFloat(newCpm);
+            }
+        }
+
+        async function saveData() {
+            originalData.cpmData = cpmData;
+            try {
+                const response = await fetch('/save-cpm', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(originalData)
+                });
+                if (response.ok) {
+                    showStatus('Data saved successfully!', 'success');
+                } else {
+                    showStatus('Error saving data', 'error');
+                }
+            } catch (error) {
+                showStatus('Error: ' + error.message, 'error');
+            }
+        }
+
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${type}`;
+            setTimeout(() => status.textContent = '', 5000);
+        }
+
+        // Event listeners
+        document.getElementById('categoryFilter').addEventListener('change', renderTable);
+        document.getElementById('geoFilter').addEventListener('change', renderTable);
+        document.getElementById('formatFilter').addEventListener('change', renderTable);
+
+        loadData();
+        
+        function renderManagementLists() {
+            // Categories
+            const catList = document.getElementById('categoriesList');
+            catList.innerHTML = (originalData.categories || []).map((cat, i) => 
+                `<div style="display: flex; justify-content: space-between; margin: 2px 0;">
+                    <span>${cat}</span>
+                    <button onclick="removeCategory(${i})" style="padding: 2px 6px;">×</button>
+                </div>`
+            ).join('');
+            
+            // Countries
+            const countryList = document.getElementById('countriesList');
+            countryList.innerHTML = (originalData.countries || []).map((country, i) => 
+                `<div style="display: flex; justify-content: space-between; margin: 2px 0;">
+                    <span>${country.code} - ${country.name}</span>
+                    <button onclick="removeCountry(${i})" style="padding: 2px 6px;">×</button>
+                </div>`
+            ).join('');
+        }
+        
+        function addCategory() {
+            const input = document.getElementById('newCategory');
+            if (input.value.trim()) {
+                originalData.categories = originalData.categories || [];
+                originalData.categories.push(input.value.trim());
+                input.value = '';
+                generateMissingCpmEntries();
+                populateFilters();
+                renderManagementLists();
+                renderTable();
+            }
+        }
+        
+        function addCountry() {
+            const codeInput = document.getElementById('newCountryCode');
+            const nameInput = document.getElementById('newCountryName');
+            if (codeInput.value.trim() && nameInput.value.trim()) {
+                originalData.countries = originalData.countries || [];
+                originalData.countries.push({ code: codeInput.value.trim().toUpperCase(), name: nameInput.value.trim() });
+                codeInput.value = '';
+                nameInput.value = '';
+                generateMissingCpmEntries();
+                populateFilters();
+                renderManagementLists();
+                renderTable();
+            }
+        }
+        
+
+        
+        function removeCategory(index) {
+            originalData.categories.splice(index, 1);
+            generateMissingCpmEntries();
+            populateFilters();
+            renderManagementLists();
+            renderTable();
+        }
+        
+        function removeCountry(index) {
+            originalData.countries.splice(index, 1);
+            generateMissingCpmEntries();
+            populateFilters();
+            renderManagementLists();
+            renderTable();
+        }
+        
+
+        
+
+        // Sync JSON button logic
+        function downloadJSON() {
+            if (originalData) {
+                const blob = new Blob([JSON.stringify(originalData, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'publisherssp_data.json';
+                a.click();
+                URL.revokeObjectURL(url);
+                setTimeout(() => {
+                    alert('Downloaded latest JSON.\n\nTo sync both files, please run:\n\nbash publisher-ssp/sync_publisherssp_data.sh');
+                }, 500);
+            } else {
+                alert('No data to download.');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const syncBtn = document.getElementById('syncJsonBtn');
+            if (syncBtn) {
+                syncBtn.addEventListener('click', downloadJSON);
+            }
+        });
+    </script>
+</body>
+</html>

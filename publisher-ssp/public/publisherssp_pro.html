@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CleverAdvertising • Publisher SSP</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="publisherssp_pro.css"/>
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="brand">
+  <div class="logo"><img src="assets/logo-v.png" alt="Clever Advertising" style="max-width: 180px; width: 100%; height: auto; display: block;" onerror="this.replaceWith(document.createTextNode('CA'))" /></div>
+  <span class="header-subtitle">Publisher Proposal Generator</span>
+    </div>
+    <div class="top-actions">
+      
+    </div>
+  </header>
+
+  <div class="app">
+    <aside class="sidebar" role="navigation" aria-label="Steps">
+      <div class="sidebar-card glass">
+        <h3>Onboarding</h3>
+        <ol id="stepper" class="stepper">
+          <li class="step active" data-step="1"><span class="dot"></span><span>1. Publisher Details</span></li>
+          <li class="step" data-step="2"><span class="dot"></span><span>2. Inventory & Targeting</span></li>
+          <li class="step" data-step="3"><span class="dot"></span><span>3. Ad Formats</span></li>
+          <li class="step" data-step="4"><span class="dot"></span><span>4. Review & Estimate</span></li>
+        </ol>
+      </div>
+
+
+
+      <div class="sidebar-card help glass">
+        <h3>Need help?</h3>
+        <p>Questions about formats, caps or GEO pricing? <a href="mailto:mediaoperations@cleveradvertising.com" aria-label="Open support">Contact support</a>.</p>
+      </div>
+    </aside>
+
+    <main class="content" role="main">
+      <!-- STEP 1: PUBLISHER DETAILS -->
+      <section class="panel" data-step="1">
+        <div class="panel-header">
+          <h2>Publisher Details</h2>
+          <p class="hint">Tell us who you are. This helps us tailor pricing and support.</p>
+        </div>
+
+        <form id="publisherForm" class="grid-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your Name" required />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="email@host.com" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" type="tel" placeholder="Your Phone Number / Whatsapp" />
+          </div>
+        </form>
+
+        <div class="panel-actions">
+          <button class="btn primary next">Continue</button>
+        </div>
+      </section>
+
+      <!-- STEP 2: INVENTORY & TARGETING -->
+      <section class="panel hidden" data-step="2">
+        <div class="panel-header">
+          <h2>Inventory & Targeting</h2>
+          <p class="hint">Add your properties and traffic distribution by GEO.</p>
+        </div>
+
+        <div class="card glass">
+          <div class="card-head">
+            <h3>Websites</h3>
+            <button id="addWebsite" class="btn ghost">Add URL</button>
+          </div>
+          <div id="websitesList" class="list"></div>
+        </div>
+
+        <div class="panel-actions">
+          <button class="btn ghost prev">Back</button>
+          <button class="btn primary next">Continue</button>
+        </div>
+      </section>
+
+      <!-- STEP 3: Ad Formats -->
+      <section class="panel hidden" data-step="3">
+        <div class="panel-header">
+          <h2>Ad Formats</h2>
+          <p class="hint">Choose your formats.</p>
+        </div>
+
+        <div class="split">
+          <div class="card glass">
+            <h3>Desktop Formats</h3>
+            <div id="desktopFormats" class="chips"></div>
+          </div>
+          <div class="card glass">
+            <h3>Mobile Formats</h3>
+            <div id="mobileFormats" class="chips"></div>
+          </div>
+        </div>
+
+
+
+        <div class="panel-actions">
+          <button class="btn ghost prev">Back</button>
+          <button class="btn primary next">Continue</button>
+        </div>
+      </section>
+
+      <!-- STEP 4: REVIEW & ESTIMATE -->
+      <section class="panel hidden" data-step="4">
+        <div class="panel-header">
+          <h2>Review & Estimate</h2>
+          <p class="hint">Confirm your selections and generate a branded proposal preview.</p>
+        </div>
+
+        <div id="reviewBlock" class="card glass"></div>
+
+        <div class="panel-actions">
+          <button class="btn ghost prev">Back</button>
+          <button id="generateProposalBtn" class="btn success">Generate Proposal</button>
+        </div>
+
+        <div id="proposalResult" class="card result hidden"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="main-footer">
+    <img src="assets/logo.png" alt="Clever Advertising" class="footer-logo" />
+  </footer>
+  <script src="publisherssp_pro.js"></script>
+</body>
+</html>
